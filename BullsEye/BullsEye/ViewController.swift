@@ -16,8 +16,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentValue = lroundf(slider.value)
+        startNewRound()
+    }
+    
+    func startNewRound() {
         targetValue = 1 + Int(arc4random_uniform(100))
+        currentValue = 50
+        slider.value = Float(currentValue)
     }
 
     @IBAction func showAlert() {
@@ -28,6 +33,8 @@ class ViewController: UIViewController {
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
+        
+        startNewRound()
     }
     
     @IBAction func sliderMoved(_ slider: UISlider) {
