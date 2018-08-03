@@ -10,10 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     var currentValue: Int = 0
-
+    @IBOutlet weak var slider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        currentValue = lroundf(slider.value)
     }
 
     @IBAction func showAlert() {
